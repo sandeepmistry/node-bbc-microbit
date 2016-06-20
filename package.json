@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/sandeepmistry/node-bbc-microbit/issues"
   },
-  "homepage": "https://github.com/sandeepmistry/node-bbc-microbit"
+  "homepage": "https://github.com/sandeepmistry/node-bbc-microbit",
+  "dependencies": {
+    "noble-device": "sandeepmistry/noble-device"
+  }
 }
