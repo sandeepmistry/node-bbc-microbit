@@ -60,6 +60,22 @@ BBCMicrobit.discover(function(microbit) {
       });
     },
     function(callback) {
+      console.log('writeLedScrollingDelay');
+      microbit.writeLedScrollingDelay(240, callback);
+    },
+    function(callback) {
+      console.log('readLedScrollingDelay');
+      microbit.readLedScrollingDelay(function(error, delay) {
+        console.log('\t LED scrolling delay = %d ms', delay);
+
+        callback();
+      });
+    },
+    function(callback) {
+      console.log('writeLedText');
+      microbit.writeLedText('Hello from Node.js!', callback);
+    },
+    function(callback) {
       console.log('writeTemperaturePeriod');
       microbit.writeTemperaturePeriod(100, callback);
     },
