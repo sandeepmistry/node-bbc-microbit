@@ -60,8 +60,46 @@ BBCMicrobit.discover(function(microbit) {
       });
     },
     function(callback) {
+      console.log('writeLedMatrixState');
+      microbit.writeLedMatrixState(new Buffer('0000000000', 'hex'), callback);
+    },
+    function(callback) {
+      console.log('readLedMatrixState');
+      microbit.readLedMatrixState(function(error, data) {
+        console.log('\t LED matrix state = %s', data.toString('hex'));
+
+        callback();
+      });
+    },
+    function(callback) {
+      setTimeout(callback, 5000);
+    },
+    function(callback) {
+      console.log('writeLedMatrixState');
+      microbit.writeLedMatrixState(new Buffer('1f1f1f1f1f', 'hex'), callback);
+    },
+    function(callback) {
+      console.log('readLedMatrixState');
+      microbit.readLedMatrixState(function(error, data) {
+        console.log('\t LED matrix state = %s', data.toString('hex'));
+
+        callback();
+      });
+    },
+    function(callback) {
+      setTimeout(callback, 5000);
+    },
+    function(callback) {
+      console.log('readLedScrollingDelay');
+      microbit.readLedScrollingDelay(function(error, delay) {
+        console.log('\t LED scrolling delay = %d ms', delay);
+
+        callback();
+      });
+    },
+    function(callback) {
       console.log('writeLedScrollingDelay');
-      microbit.writeLedScrollingDelay(240, callback);
+      microbit.writeLedScrollingDelay(100, callback);
     },
     function(callback) {
       console.log('readLedScrollingDelay');
@@ -144,13 +182,13 @@ BBCMicrobit.discover(function(microbit) {
         callback();
       });
     },
-    // function(callback) {
-    //   console.log('readMagnetometer');
-    //   microbit.readMagnetometer(function(error, x, y, z) {
-    //     console.log('\tmagnetometer = %d %d %d', x.toFixed(1), y.toFixed(1), z.toFixed(1));
-    //     callback();
-    //   });
-    // },
+    function(callback) {
+      console.log('readMagnetometer');
+      microbit.readMagnetometer(function(error, x, y, z) {
+        console.log('\tmagnetometer = %d %d %d', x.toFixed(1), y.toFixed(1), z.toFixed(1));
+        callback();
+      });
+    },
     function(callback) {
       console.log('subscribeMagnetometer');
       microbit.subscribeMagnetometer(callback);
@@ -162,13 +200,13 @@ BBCMicrobit.discover(function(microbit) {
       console.log('unsubscribeMagnetometer');
       microbit.unsubscribeMagnetometer(callback);
     },
-    // function(callback) {
-    //   console.log('readMagnetometerBearing');
-    //   microbit.readMagnetometerBearing(function(error, bearing) {
-    //     console.log('\tmagnetometer bearing = %d', bearing);
-    //     callback();
-    //   });
-    // },
+    function(callback) {
+      console.log('readMagnetometerBearing');
+      microbit.readMagnetometerBearing(function(error, bearing) {
+        console.log('\tmagnetometer bearing = %d', bearing);
+        callback();
+      });
+    },
     function(callback) {
       console.log('subscribeMagnetometerBearing');
       microbit.subscribeMagnetometerBearing(callback);
