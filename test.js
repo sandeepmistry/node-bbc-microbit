@@ -26,6 +26,14 @@ BBCMicrobit.discover(function(microbit) {
     console.log('\ton -> magnetometer bearing change: magnetometer bearing = %d', bearing);
   });
 
+  microbit.on('buttonAChange', function(pressed) {
+    console.log('\ton -> button A change: pressed = %d', pressed);
+  });
+
+  microbit.on('buttonBChange', function(pressed) {
+    console.log('\ton -> button B change: pressed = %d', pressed);
+  });
+
   async.series([
     function(callback) {
       console.log('connectAndSetUp');
@@ -217,6 +225,25 @@ BBCMicrobit.discover(function(microbit) {
     function(callback) {
       console.log('unsubscribeMagnetometerBearing');
       microbit.unsubscribeMagnetometerBearing(callback);
+    },
+    function(callback) {
+      console.log('subscribeButtonA');
+      microbit.subscribeButtonA(callback);
+    },
+    function(callback) {
+      console.log('subscribeButtonB');
+      microbit.subscribeButtonB(callback);
+    },
+    function(callback) {
+      setTimeout(callback, 10000);
+    },
+    function(callback) {
+      console.log('unsubscribeButtonB');
+      microbit.unsubscribeButtonB(callback);
+    },
+    function(callback) {
+      console.log('unsubscribeButtonA');
+      microbit.unsubscribeButtonA(callback);
     },
     function(callback) {
       console.log('disconnect');
