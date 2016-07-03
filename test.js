@@ -34,6 +34,14 @@ BBCMicrobit.discover(function(microbit) {
     console.log('\ton -> button B change: pressed = %d', pressed);
   });
 
+  microbit.on('pinDataChange', function(pin, value) {
+    console.log('\ton -> pin data change: pin = %d, value = %d', pin, value);
+  });
+
+  microbit.on('uartData', function(data) {
+    console.log('\ton -> UART data: data = %s', data.toString('hex'));
+  });
+
   async.series([
     function(callback) {
       console.log('connectAndSetUp');
@@ -244,6 +252,96 @@ BBCMicrobit.discover(function(microbit) {
     function(callback) {
       console.log('unsubscribeButtonA');
       microbit.unsubscribeButtonA(callback);
+    },
+    function(callback) {
+      console.log('unsubscribeButtonA');
+      microbit.unsubscribeButtonA(callback);
+    },
+    function(callback) {
+      console.log('writePinAdConfiguration');
+      microbit.writePinAdConfiguration(0x00000000, callback);
+    },
+    function(callback) {
+      console.log('readPinAdConfiguration');
+      microbit.readPinAdConfiguration(function(error, value) {
+        console.log('\tpin AD configuration = %d', value);
+
+        callback();
+      });
+    },
+    function(callback) {
+      console.log('writePinIoConfiguration');
+      microbit.writePinIoConfiguration(0x00000007, callback);
+    },
+    function(callback) {
+      console.log('readPinIoConfiguration');
+      microbit.readPinIoConfiguration(function(error, value) {
+        console.log('\tpin IO configuration = %d', value);
+
+        callback();
+      });
+    },
+    function(callback) {
+      console.log('readPinData');
+      microbit.readPinData(function(error, data) {
+        console.log('\tpin data = %j', data);
+
+        callback();
+      });
+    },
+    function(callback) {
+      console.log('subscribePinData');
+      microbit.subscribePinData(callback);
+    },
+    function(callback) {
+      setTimeout(callback, 10000);
+    },
+    function(callback) {
+      console.log('unsubscribePinData');
+      microbit.unsubscribePinData(callback);
+    },
+    function(callback) {
+      console.log('writePinIoConfiguration');
+      microbit.writePinIoConfiguration(0x00000000, callback);
+    },
+    function(callback) {
+      console.log('writePinData');
+      microbit.writePinData(new Buffer('0001', 'hex'), callback);
+    },
+    function(callback) {
+      console.log('readPinData');
+      microbit.readPinData(function(error, data) {
+        console.log('\tpin data = %j', data);
+
+        callback();
+      });
+    },
+    function(callback) {
+      console.log('writePinData');
+      microbit.writePinData(new Buffer('0000', 'hex'), callback);
+    },
+    function(callback) {
+      console.log('readPinData');
+      microbit.readPinData(function(error, data) {
+        console.log('\tpin data = %j', data);
+
+        callback();
+      });
+    },
+    function(callback) {
+      console.log('subscribeUart');
+      microbit.subscribeUart(callback);
+    },
+    function(callback) {
+      console.log('writeUart');
+      microbit.writeUart(new Buffer('hello UART'), callback);
+    },
+    function(callback) {
+      setTimeout(callback, 5000);
+    },
+    function(callback) {
+      console.log('unsubscribeUart');
+      microbit.unsubscribeUart(callback);
     },
     function(callback) {
       console.log('disconnect');
