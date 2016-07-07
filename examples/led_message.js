@@ -15,12 +15,20 @@ var async = require('async');
 
 var BBCMicrobit = require('../index');
 
+if (process.argv.length < 4) {
+  console.log("ERROR: insufficient arguments. Please supply the address of a micro:bit and a short (max 20 characters) text string");
+  console.log("For example:");
+  console.log("sudo node led_message.js D964360E8701 hello\ martin");
+  process.exit(1);
+}
+
+
 var peripheralIdOrAddress = process.argv[2];
 var text = process.argv[3];
 
 if (peripheralIdOrAddress == undefined) {
   console.log("ERROR: supply micro:bit MAC address as argument");
-  process.exit();
+  process.exit(1);
 }
 
 peripheralIdOrAddress = peripheralIdOrAddress.toLowerCase();
@@ -28,7 +36,7 @@ peripheralIdOrAddress = peripheralIdOrAddress.replace(/:/g, "");
 
 if (text == undefined) {
   console.log("ERROR: supply max 20 ascii characters to display on the micro:bit as second argument");
-  process.exit();
+  process.exit(1);
 }
 
 console.log("Scanning for "+peripheralIdOrAddress);
