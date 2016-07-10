@@ -332,15 +332,15 @@ BBCMicrobit.discover(function(microbit) {
     },
     function(callback) {
       console.log('pinAnalog', pin);
-      microbit.pinAnalog(pin, callback)
+      microbit.pinAnalog(pin, callback);
     },
     function(callback) {
       console.log('pinDigital', pin);
-      microbit.pinDigital(pin, callback)
+      microbit.pinDigital(pin, callback);
     },
     function(callback) {
       console.log('pinInput', pin);
-      microbit.pinInput(pin, callback)
+      microbit.pinInput(pin, callback);
     },
     function(callback) {
       console.log('readPin', pin);

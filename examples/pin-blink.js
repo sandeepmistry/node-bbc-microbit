@@ -33,7 +33,7 @@ BBCMicrobit.discover(function(microbit) {
   });
 
   function togglePin() {
-    pinValue = (pinValue == 0) ? 1 : 0;
+    pinValue = (pinValue === 0) ? 1 : 0;
 
     console.log('writing %d to pin %d', pinValue, pin);
     microbit.writePin(pin, pinValue, function() {
