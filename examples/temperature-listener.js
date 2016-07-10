@@ -1,4 +1,4 @@
-// subscribes to the temperatur service and prints out value
+// subscribes to the temperature service and prints out value
 
 var BBCMicrobit = require('../index'); // or require('bbc-microbit')
 
