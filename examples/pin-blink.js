@@ -15,10 +15,6 @@ BBCMicrobit.discover(function(microbit) {
     process.exit(0);
   });
 
-  microbit.on('temperatureChange', function(temperature) {
-    console.log('\ton -> temperature change: temperature = %d °C', temperature);
-  });
-
   console.log('connecting to microbit');
   microbit.connectAndSetUp(function() {
     console.log('\tconnected to microbit');
