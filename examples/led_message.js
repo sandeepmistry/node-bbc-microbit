@@ -9,6 +9,8 @@
 *
 * micro:bit hex file must include the Bluetooth LED Service and Device Information Service
 *
+* http://bluetooth-mdw.blogspot.co.uk/p/bbc-microbit.html for hex files and micro:bit information
+*
 */
 
 var async = require('async');
