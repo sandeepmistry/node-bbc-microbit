@@ -9,10 +9,10 @@ Control a [BBC micro:bit](https://www.microbit.co.uk/) from Node.js using BLE.
 
 ### Flashing micro:bit firmware
 
- 1. Save [hex file](firmware/node-bbc-microbit-v0.1.0.hex).
+ 1. Save hex file from [firmware folder](firmware/) to computer.
  1. Connect micro:bit to computer using USB cable.
  1. Copy hex file to micro:bit disk drive.
- 1. Calibrate magnetometer, by rotating it around in a circle.
+ 1. Calibrate magnetometer, by rotating micro:bit around in a circle.
 
 ## Install
 
