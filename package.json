@@ -1,10 +1,10 @@
 {
   "name": "bbc-microbit",
-  "version": "0.0.0",
-  "description": "Control a BBC micro:bit from Node.js over BLE ",
+  "version": "0.1.0",
+  "description": "Control a BBC micro:bit from Node.js using BLE ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jshint lib/. examples/. *.js"
   },
   "repository": {
     "type": "git",
@@ -22,9 +22,10 @@
   },
   "homepage": "https://github.com/sandeepmistry/node-bbc-microbit",
   "dependencies": {
-    "noble-device": "sandeepmistry/noble-device"
+    "noble-device": "^1.4.0"
   },
   "devDependencies": {
-    "async": "^1.5.2"
+    "async": "^1.5.2",
+    "jshint": "^2.9.2"
   }
 }

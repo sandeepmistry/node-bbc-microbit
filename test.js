@@ -42,6 +42,8 @@ BBCMicrobit.discover(function(microbit) {
     console.log('\ton -> UART data: data = %s', data.toString('hex'));
   });
 
+  var pin = 0;
+
   async.series([
     function(callback) {
       console.log('connectAndSetUp');
@@ -327,6 +329,38 @@ BBCMicrobit.discover(function(microbit) {
 
         callback();
       });
+    },
+    function(callback) {
+      console.log('pinAnalog', pin);
+      microbit.pinAnalog(pin, callback);
+    },
+    function(callback) {
+      console.log('pinDigital', pin);
+      microbit.pinDigital(pin, callback);
+    },
+    function(callback) {
+      console.log('pinInput', pin);
+      microbit.pinInput(pin, callback);
+    },
+    function(callback) {
+      console.log('readPin', pin);
+      microbit.readPin(pin, function(error, value) {
+        console.log('\tpin value = %d', value);
+
+        callback();
+      });
+    },
+    function(callback) {
+      console.log('pinOutput', pin);
+      microbit.pinOutput(pin, callback);
+    },
+    function(callback) {
+      console.log('writePin', pin);
+      microbit.writePin(pin, 1, callback);
+    },
+    function(callback) {
+      console.log('writePin', pin);
+      microbit.writePin(pin, 0, callback);
     },
     function(callback) {
       console.log('subscribeUart');
