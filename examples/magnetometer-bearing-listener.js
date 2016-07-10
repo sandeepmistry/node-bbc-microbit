@@ -23,7 +23,7 @@ BBCMicrobit.discover(function(microbit) {
 
     console.log('setting magnetometer period to %d ms', period);
     microbit.writeMagnetometerPeriod(period, function() {
-      console.log('\magnetometer period set');
+      console.log('\tmagnetometer period set');
 
       console.log('subscribing to magnetometer bearing');
       microbit.subscribeMagnetometerBearing(function() {
