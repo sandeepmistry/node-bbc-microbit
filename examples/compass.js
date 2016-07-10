@@ -5,9 +5,11 @@
 *
 * Example:
 *
-* sudo node button-listener.js
+* sudo node compass.js
 *
 * micro:bit hex file must include the Bluetooth Magnetometer Service
+*
+* http://bluetooth-mdw.blogspot.co.uk/p/bbc-microbit.html for hex files and micro:bit information
 *
 */
 
@@ -72,13 +74,13 @@ BBCMicrobit.discover(function(microbit) {
 });
 
 function compassPoint(bearing) {
-        var d = bearing / COMPASS_POINT_DELTA;
-        var name_inx = Math.floor(d);
-        if (d - name_inx > 0.5) {
-            name_inx++;
-        }
-        if (name_inx > 15) {
-            name_inx = 0;
-        }
-        return COMPASS_POINTS[name_inx];
-    }
+  var d = bearing / COMPASS_POINT_DELTA;
+  var name_inx = Math.floor(d);
+  if (d - name_inx > 0.5) {
+      name_inx++;
+  }
+  if (name_inx > 15) {
+      name_inx = 0;
+  }
+  return COMPASS_POINTS[name_inx];
+}
