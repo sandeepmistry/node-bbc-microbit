@@ -1,14 +1,24 @@
 # node-bbc-microbit API
 
+1. [Discovery](#discovery)
+1. [Connecting and disconnecting](#connecting-and-disconnecting)
+1. [Accelerometer](#accelerometer)
+1. [Buttons](#buttons)
+1. [Pin IO](#pin-io)
+1. [LED Matrix](#led-matrix)
+1. [Magnetometer](#magnetometer)
+1. [Temperature](#temperature)
+1. [UART](#uart) 
+
 ## Require module
 
 ```javascript
 var BBCMicrobit = require('bbc-microbit');
 ```
 
-## Discover
+## Discovery
 
-### One
+### Single
 
 ```javascript
 BBCMicrobit.discover(callback(microbit));
