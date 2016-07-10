@@ -29,7 +29,7 @@ BBCMicrobit.discover(function(microbit) {
 
   console.log('connecting to microbit');
   microbit.connectAndSetUp(function() {
-    console.log('\tconnected to microbit')
+    console.log('\tconnected to microbit');
 
     console.log('sending text: "%s"', text);
     microbit.writeLedText(text, function() {
