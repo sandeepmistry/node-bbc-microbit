@@ -51,7 +51,7 @@ BBCMicrobit.discover(function(microbit) {
 
   microbit.on('magnetometerBearingChange', function(bearing) {
     var point_name = compassPoint(bearing);
-    if (point_name != last_compass_point_name) {
+    if (point_name !== last_compass_point_name) {
        console.log('\t Compass Direction: %s', point_name);
        last_compass_point_name = point_name;
     }
