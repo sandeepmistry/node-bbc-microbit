@@ -368,3 +368,46 @@ microbit.on('uartData', function(data) {
 ```javascript
 microbit.writeUart(data, callback(error));
 ```
+
+## [Event](https://lancaster-university.github.io/microbit-docs/ble/event-service/)
+
+### Micro:bit Events
+
+Events come in two varieties, reflected by the two corresponding characteristics: 
+
+Micro:bit Events emanate from the micro:bit and may be notified to the connected client.
+
+Client Events emanate from the connected client and may be written to the connected micro:bit
+
+Both types of event have the following structure:
+
+```
+struct event {
+ uint16 event_id;
+ uint16 event_value;
+};
+```
+
+event_type and event_value are in little endian format.
+
+### Write client event
+
+```javascript
+writeClientEvent = function(event_id, event_value, callback)
+```
+
+### Subscription
+
+```javascript
+microbit.subscribeMicrobitEvents(client_req_event_id, client_req_event_value, callback(error));
+
+microbit.unsubscribeMicrobitEvent(callback(error));
+```
+
+#### Event
+
+```javascript
+microbit.on('microbitEventChange', function(event_id,event_value) {
+  // ...
+});
+```
