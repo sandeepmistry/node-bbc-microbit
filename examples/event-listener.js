@@ -14,7 +14,9 @@
 
 var BBCMicrobit = require('../index'); // or require('bbc-microbit')
 
-const EVENT_FAMILY = 9999; // 9999 event type, 0000 event value (wildcard meaning ANY), each in little endian format
+const EVENT_FAMILY    = 9999; 
+const EVENT_VALUE_ANY = 0; 
+const EVENT_VALUE_1   = 1; 
 
 // search for a micro:bit, to discover a particular micro:bit use:
 //  BBCMicrobit.discoverById(id, callback); or BBCMicrobit.discoverByAddress(id, callback);
@@ -65,9 +67,18 @@ BBCMicrobit.discover(function(microbit) {
   microbit.connectAndSetUp(function() {
     console.log('\tconnected to microbit');
 
-    console.log('subscribing to event family 9999');
-    microbit.subscribeMicrobitEvents(EVENT_FAMILY, function() {
+    // Example 1: subscribe to all micro:bit events with ID 9999 and any event value
+    console.log('subscribing to event family 9999, any event value');
+    microbit.subscribeMicrobitEvents(EVENT_FAMILY,EVENT_VALUE_ANY, function() {
       console.log('\tsubscribed to micro:bit events of required type');
     });
+
+    // Example 2: subscribe to the specific event with ID=9999 and value=0001 only
+//    console.log('subscribing to event family 9999, event value 0001');
+//    microbit.subscribeMicrobitEvents(EVENT_FAMILY,EVENT_VALUE_1, function() {
+//      console.log('\tsubscribed to micro:bit events of required type');
+//    });
+
+
   });
 });
