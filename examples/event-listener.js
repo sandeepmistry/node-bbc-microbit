@@ -54,8 +54,8 @@ BBCMicrobit.discover(function(microbit) {
   console.log('\tdiscovered microbit: id = %s, address = %s', microbit.id, microbit.address);
 
 
-  microbit.on('microbitEventChange', function(event,value) {
-    console.log('\ton -> micro:bit event received event: %d value: %d',event,value);
+  microbit.on('microbitEventChange', function(event_id,event_value) {
+    console.log('\ton -> micro:bit event received event: %d value: %d',event_id,event_value);
   });
 
   microbit.on('disconnect', function() {
