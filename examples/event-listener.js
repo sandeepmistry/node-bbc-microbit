@@ -27,6 +27,7 @@ const EVENT_VALUE_1   = 1;
 //
 
 /*
+#include "MicroBit.h"
 MicroBit uBit;
 int EVENT_ID = 9999;
 
@@ -54,7 +55,7 @@ BBCMicrobit.discover(function(microbit) {
   console.log('\tdiscovered microbit: id = %s, address = %s', microbit.id, microbit.address);
 
 
-  microbit.on('microbitEventChange', function(event_id,event_value) {
+  microbit.on('event', function(event_id,event_value) {
     console.log('\ton -> micro:bit event received event: %d value: %d',event_id,event_value);
   });
 
@@ -69,13 +70,13 @@ BBCMicrobit.discover(function(microbit) {
 
     // Example 1: subscribe to all micro:bit events with ID 9999 and any event value
     console.log('subscribing to event family 9999, any event value');
-    microbit.subscribeMicrobitEvents(EVENT_FAMILY,EVENT_VALUE_ANY, function() {
+    microbit.subscribeEvents(EVENT_FAMILY,EVENT_VALUE_ANY, function() {
       console.log('\tsubscribed to micro:bit events of required type');
     });
 
     // Example 2: subscribe to the specific event with ID=9999 and value=0001 only
 //    console.log('subscribing to event family 9999, event value 0001');
-//    microbit.subscribeMicrobitEvents(EVENT_FAMILY,EVENT_VALUE_1, function() {
+//    microbit.subscribeEvents(EVENT_FAMILY,EVENT_VALUE_1, function() {
 //      console.log('\tsubscribed to micro:bit events of required type');
 //    });
 
