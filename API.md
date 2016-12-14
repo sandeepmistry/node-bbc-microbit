@@ -8,7 +8,8 @@
 1. [LED Matrix](#led-matrix)
 1. [Magnetometer](#magnetometer)
 1. [Temperature](#temperature)
-1. [UART](#uart) 
+1. [UART](#uart)
+1. [Event](#event-5)
 
 ## Require module
 
@@ -373,41 +374,31 @@ microbit.writeUart(data, callback(error));
 
 ### Micro:bit Events
 
-Events come in two varieties, reflected by the two corresponding characteristics: 
+Events come in two varieties, reflected by the two corresponding characteristics:
 
 Micro:bit Events emanate from the micro:bit and may be notified to the connected client.
 
 Client Events emanate from the connected client and may be written to the connected micro:bit
 
-Both types of event have the following structure:
 
-```
-struct event {
- uint16 event_id;
- uint16 event_value;
-};
-```
-
-event_type and event_value are in little endian format.
-
-### Write client event
+### Write event
 
 ```javascript
-writeClientEvent = function(event_id, event_value, callback)
+microbit.writeEvent(id, value, callback);
 ```
 
 ### Subscription
 
 ```javascript
-microbit.subscribeMicrobitEvents(client_req_event_id, client_req_event_value, callback(error));
+microbit.subscribeEvents(id, value, callback(error));
 
-microbit.unsubscribeMicrobitEvent(callback(error));
+microbit.unsubscribeEvent(callback(error));
 ```
 
 #### Event
 
 ```javascript
-microbit.on('microbitEventChange', function(event_id,event_value) {
+microbit.on('event', function(id, value) {
   // ...
 });
 ```
