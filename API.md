@@ -8,7 +8,8 @@
 1. [LED Matrix](#led-matrix)
 1. [Magnetometer](#magnetometer)
 1. [Temperature](#temperature)
-1. [UART](#uart) 
+1. [UART](#uart)
+1. [Event](#event-5)
 
 ## Require module
 
@@ -367,4 +368,37 @@ microbit.on('uartData', function(data) {
 
 ```javascript
 microbit.writeUart(data, callback(error));
+```
+
+## [Event](https://lancaster-university.github.io/microbit-docs/ble/event-service/)
+
+### Micro:bit Events
+
+Events come in two varieties, reflected by the two corresponding characteristics:
+
+Micro:bit Events emanate from the micro:bit and may be notified to the connected client.
+
+Client Events emanate from the connected client and may be written to the connected micro:bit
+
+
+### Write event
+
+```javascript
+microbit.writeEvent(id, value, callback);
+```
+
+### Subscription
+
+```javascript
+microbit.subscribeEvents(id, value, callback(error));
+
+microbit.unsubscribeEvent(callback(error));
+```
+
+#### Event
+
+```javascript
+microbit.on('event', function(id, value) {
+  // ...
+});
 ```
