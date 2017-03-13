@@ -5,7 +5,7 @@ Control a [BBC micro:bit](https://www.microbit.co.uk/) from Node.js using BLE.
 ## Prerequisites
 
  * See [noble prerequisites](https://github.com/sandeepmistry/noble).
- * Requires a custom firmware build on the micro:bit. This build removes pairing security and enables all BLE services.
+ * Requires a custom firmware build on the micro:bit. This build removes pairing security and enables all BLE services. The source code of the custom firmware can be found [here](https://github.com/sandeepmistry/node-bbc-microbit-firmware).
 
 ### Flashing micro:bit firmware
 
