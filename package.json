@@ -1,6 +1,6 @@
 {
   "name": "bbc-microbit",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Control a BBC micro:bit from Node.js using BLE ",
   "main": "index.js",
   "scripts": {
