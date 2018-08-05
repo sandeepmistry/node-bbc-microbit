@@ -1,0 +1,27 @@
+var BBCMicrobit = require('../index'); // or require('bbc-microbit')
+
+// search for a micro:bit, to discover a particular micro:bit use:
+//  BBCMicrobit.discoverById(id, callback); or BBCMicrobit.discoverByAddress(id, callback);
+
+console.log('Scanning for microbit');
+BBCMicrobit.discover(function(microbit) {
+  console.log('discovered microbit: id = %s, address = %s', microbit.id, microbit.address);
+
+  microbit.on('disconnect', function() {
+    console.log('microbit disconnected!');
+    process.exit(0);
+  });
+  
+  microbit.on('uartData', function(data){
+	console.log('\tUART: data=%s',data);  
+  });
+  console.log('connecting to microbit');
+  microbit.connectAndSetUp(function() {
+   console.log('connected to microbit');
+   
+   console.log('subscribing to pin data');
+   microbit.subscribeUart(function() {
+    console.log('subscribed to pin data');
+      });
+    });
+  });
